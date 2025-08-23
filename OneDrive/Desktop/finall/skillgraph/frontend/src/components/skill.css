@@ -1,0 +1,429 @@
+/* SkillGraph Pure CSS Styles */
+
+.skillgraph-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e1b4b 0%, #1e3a8a 50%, #312e81 100%);
+  color: white;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.skillgraph-bg-animated {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.skillgraph-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  filter: blur(40px);
+  opacity: 0.2;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.skillgraph-bg-circle:first-child {
+  top: -160px;
+  right: -160px;
+  width: 320px;
+  height: 320px;
+  background: #8b5cf6;
+}
+
+.skillgraph-bg-circle:last-child {
+  bottom: -160px;
+  left: -160px;
+  width: 320px;
+  height: 320px;
+  background: #3b82f6;
+}
+
+.skillgraph-main {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.skillgraph-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.skillgraph-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.skillgraph-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-left: 0.75rem;
+}
+
+.skillgraph-subtitle {
+  font-size: 1.25rem;
+  color: #d1d5db;
+  margin-bottom: 0.5rem;
+}
+
+.skillgraph-description {
+  color: #9ca3af;
+}
+
+.skillgraph-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .skillgraph-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.skillgraph-panel {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.skillgraph-panel-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.skillgraph-textarea {
+  width: 100%;
+  height: 16rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: white;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.skillgraph-textarea:focus {
+  outline: none;
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.5);
+}
+
+.skillgraph-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.skillgraph-button {
+  width: 100%;
+  margin-top: 1rem;
+  background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  transform-origin: center;
+}
+
+.skillgraph-button:hover {
+  background: linear-gradient(45deg, #7c3aed, #2563eb);
+  transform: scale(1.02);
+}
+
+.skillgraph-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.skillgraph-processing {
+  margin-top: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.skillgraph-processing-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.skillgraph-processing-text {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  margin-bottom: 0.5rem;
+}
+
+.skillgraph-progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background: #374151;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.skillgraph-progress-fill {
+  height: 100%;
+  background: linear-gradient(45deg, #a78bfa, #60a5fa);
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.skillgraph-jobs-container {
+  max-height: 37.5rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.skillgraph-jobs-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.skillgraph-jobs-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.skillgraph-jobs-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.skillgraph-job-card {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s;
+  transform-origin: center;
+}
+
+.skillgraph-job-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.01);
+}
+
+.skillgraph-job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.skillgraph-job-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.skillgraph-job-company {
+  color: #a78bfa;
+  margin-bottom: 0.25rem;
+}
+
+.skillgraph-job-salary {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.skillgraph-job-location {
+  display: flex;
+  align-items: center;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.skillgraph-match-score {
+  text-align: right;
+}
+
+.skillgraph-match-number {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.skillgraph-match-label {
+  font-size: 0.75rem;
+  color: #d1d5db;
+}
+
+.skillgraph-job-description {
+  color: #d1d5db;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.skillgraph-skills-section {
+  margin-bottom: 0.75rem;
+}
+
+.skillgraph-skills-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+}
+
+.skillgraph-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.skillgraph-skill-tag {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.skillgraph-job-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skillgraph-experience {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.skillgraph-stats {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #60a5fa;
+}
+
+.skillgraph-empty-state {
+  text-align: center;
+  color: #9ca3af;
+  padding: 3rem 0;
+}
+
+.skillgraph-empty-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  opacity: 0.5;
+}
+
+.skillgraph-algorithm-section {
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.skillgraph-algorithm-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .skillgraph-algorithm-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.skillgraph-algorithm-card {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.skillgraph-algorithm-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.skillgraph-algorithm-description {
+  color: #d1d5db;
+  line-height: 1.4;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Utility classes */
+.icon-sm { width: 1rem; height: 1rem; }
+.icon-md { width: 1.5rem; height: 1.5rem; }
+.icon-lg { width: 3rem; height: 3rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skillgraph-title {
+    font-size: 2rem;
+  }
+  
+  .skillgraph-main {
+    padding: 1rem;
+  }
+  
+  .skillgraph-job-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .skillgraph-match-score {
+    align-self: flex-end;
+    margin-top: -2rem;
+  }
+}
